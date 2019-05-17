@@ -1,0 +1,4 @@
+- installation via skeleton projet SF
+- creation de l'app Order
+- configuration de l'environnement de dev (db notamment)
+- debut de dev
