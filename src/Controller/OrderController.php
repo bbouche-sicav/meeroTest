@@ -3,24 +3,27 @@
 namespace App\Controller;
 
 use App\Entity\Order;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class OrderController extends AbstractController
 {
     /**
       * @Route("/order/index")
     */
-    public function index()
+    public function index(Request $request)
     {
         $order = new Order();
-        $order->setOrderId('');
-        $order->setOrderTax('');
-        $order->setMarketplace('');
-        $order->setIdFlux('');
+        $order->setOrderId('12-345-2');
+        $order->setOrderAmount(100);
+        $order->setOrderTax(20);
+        $order->setMarketplace('amazon');
+        $order->setIdFlux(8827);
 
         $form = $this->createFormBuilder($order)
             ->add('orderId', TextType::class)
